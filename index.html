@@ -16,8 +16,41 @@
 <h2>Look, a GIF! (Yes, that is the GIF. You are seeing the right thing.)</h2>
    <img src="https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif">
 <p>
-    <button type="button">This button doesn't work, do not try to click this!</button>  
+    <button type="button">This button doesn't work, do not try to click this!</button>
+<body>
+<h2> My name in Unicode: 0046 0061 0069 0074 0068 <h2>
 <hr>
 <h3>This is what I added:<h3>
 <h3>Changed font, changed color of words, added a gif, added a line separation & added button</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Integration</title>
+</head>
+<body>
+    <h1>Random Dog Image</h1>
+    <img id="dog-image" src="" alt="Random Dog Image">
+
+    <script>
+        // Function to fetch data from the Dog API and update the image source
+        function fetchDogImage() {
+            // API endpoint URL
+            const apiUrl = 'https://dog.ceo/api/breeds/image/random';
+
+            // Fetch data from the API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the image source with the URL from the API response
+                    document.getElementById('dog-image').src = data.message;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        // Call the fetchDogImage function when the page loads
+        fetchDogImage();
+    </script>
+</body>
+</html>
+
 </html>
